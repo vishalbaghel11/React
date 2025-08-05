@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # webpack:- 
 # npx create -react -app food-delivery
 # structure of the website is as given below :-
@@ -17,3 +18,6 @@
   -address
   -contact
 */
+=======
+# React 
+>>>>>>> 1c1dca9e930955b10d0960cab74275d5513853e3
