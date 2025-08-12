@@ -1,17 +1,12 @@
-
-
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #f8f8f8;
 }
-
 .app {
   width: 100%;
 }
-
-
 #header {
   background-color: #ffffff;
   padding: 10px 20px;
@@ -20,11 +15,9 @@ body {
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 #logo img {
   width: 100px;
 }
-
 .nav-items ul {
   display: flex;
   list-style: none;
@@ -42,7 +35,35 @@ body {
 .nav-items li:hover {
   color: #fc8019;
 }
+.filter-button {
+  background: linear-gradient(135deg, #ff6f61, #ff3b2f); 
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  font-size: 16px;
+  border-radius: 50px; 
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4); 
+  transition: all 0.3s ease;
+}
 
+.filter-button:hover {
+  background: linear-gradient(135deg, #ff3b2f, #ff6f61);
+  box-shadow: 0 6px 20px rgba(255, 59, 47, 0.6);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.filter-button:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
 
 .restaurant-list {
   display: flex;
@@ -52,7 +73,6 @@ body {
   gap: 20px;
 }
 
-/* Card */
 .card {
   width: 260px;
   background-color: #fff;
@@ -90,11 +110,9 @@ body {
   margin: 10px 15px 15px 15px;
   font-size: 14px;
 }
-
 .card span h4 {
   margin: 0;
 }
-
 .fa-star {
   color: #fabb05;
   margin-right: 5px;
