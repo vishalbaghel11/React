@@ -1,5 +1,5 @@
 import { LOGO_URL } from "./utils/logo";
-export const Header = () => {
+const Header = () => {
   return (
     <div id="header">
       <div id="logo">
