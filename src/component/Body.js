@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestroCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurent, setListOfRestaurent] = useState([]);
@@ -8,42 +9,39 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.918938&lng=75.7887458&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
+    const fetchData = async () => {
+      const data = await fetch("https://pastebin.com/raw/0QcdEDBL");
+      const json = await data.json();
 
-    console.log(
-      json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+      console.log(
+        json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      );
 
-    const restaurants =
-      json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
-      [];
+      const restaurants =
+        json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants ;
 
-    setListOfRestaurent(restaurants);
-    setAllRestaurants(restaurants);
-  };
+      setListOfRestaurent(restaurants);
+      setAllRestaurants(restaurants);
+    };
 
-  fetchData();
-}, []);
-
+    fetchData();
+  }, []);
 
   const handleTopRated = () => {
     const filtered = allRestaurants.filter(
-      (restaurant) => parseFloat(restaurant.info.avgRating) > 4
+      (restaurant) => parseFloat(restaurant.info.avgRating) > 4.5
     );
     setListOfRestaurent(filtered);
   };
+
   if (listOfRestaurent.length === 0) {
-  return (
-    <>
-      <h1>Loading...</h1>
-      <Shimmer />
-    </>
-  );
-}
+    return (
+      <>
+        <Shimmer />
+      </>
+    );
+  }
+
   return (
     <div>
       <div className="flex gap-4 mb-4">
@@ -58,7 +56,7 @@ const Body = () => {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
-       <button
+        <button
           onClick={() => {
             const filtered = allRestaurants.filter((restaurant) =>
               restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -69,21 +67,19 @@ const Body = () => {
           Search
         </button>
 
-<button
-  onClick={() => setListOfRestaurent(allRestaurants)}
->
-  Clear
-</button>
-</div>
-
-<div className="restaurant-list grid grid-cols-3 gap-4">
+        <button onClick={() => setListOfRestaurent(allRestaurants)}>
+          Clear
+        </button>
+      </div>
+      <div className="restaurant-list grid grid-cols-3 gap-4">
         {listOfRestaurent.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant.info} />
+          <Link key={restaurant.info.id} to={`/restaurant/${restaurant.info.id}`}>
+            <RestaurantCard resData={restaurant.info} />
+          </Link>
         ))}
       </div>
     </div>
   );
 };
-    
 
 export default Body;

@@ -1,15 +1,16 @@
 import React from 'react';
-import './App.css';
 import Header from './Header';
-import Body from './Body';
-
+import { Outlet } from 'react-router-dom'; /**/ 
+import "../index.css"
+// import Grocery from './Grocery';
 const App = () => {
+
+
   return (
     <div className="app">
       <Header />
-      <Body />
+      <Outlet/>
     </div>
   );
 };
-
 export default App;

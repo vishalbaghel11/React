@@ -1,5 +1,4 @@
-
-import { CDN_IMG_URL } from "./utils/logo";
+import { CDN_IMG_URL } from "../utils/logo";
 const RestaurantCard = ({ resData }) => {
   const {
     cloudinaryImageId,
