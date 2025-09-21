@@ -6,8 +6,8 @@ import App from "./component/App";
 import Contact from "./component/Contact";
 import Error from "./component/Error";
 import Body from "./component/Body";
-import Cart from "./component/Cart";
-import RestroMenu from "./component/RestroMenu"; 
+// import Cart from "./component/Cart";
+import RestaurantMenu from "./component/RestroMenu";
 import Inputform from "./component/Inputform";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -36,10 +36,10 @@ const appRouter = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
-      {
-        path: "/cart",
-        element: <Cart />,
-      },
+      // {
+      //   path: "/cart",
+      //   element: <Cart />,
+      // },
       {
         path: "/grocery",
         element: (
@@ -50,7 +50,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurant/:resId", 
-        element: <RestroMenu />,
+        element: <RestaurantMenu />,
       },
       {
         path: "/inputform",
