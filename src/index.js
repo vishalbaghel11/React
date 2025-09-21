@@ -1,6 +1,6 @@
 import React, { lazy,Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import './index.css';
 import App from "./component/App";
 // import About from "./component/About";
 import Contact from "./component/Contact";
@@ -12,6 +12,7 @@ import Inputform from "./component/Inputform";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import Grocery from "./component/Grocery";
+
 const Grocery = lazy(() => import("./component/Grocery"));
 const About = lazy(() => import("./component/About"));
 const appRouter = createBrowserRouter([

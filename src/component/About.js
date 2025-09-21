@@ -7,9 +7,10 @@ class UserClass extends React.Component {
       userInfo: {
         name: "Loading...",
         location: "Loading...",
-        avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSez5Hhwz8qtjcctv1WFL6Td8NVdHUtSw12hw&usqp=CAU",
-        bio: "Loading..."
-      }
+        avatar_url:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSez5Hhwz8qtjcctv1WFL6Td8NVdHUtSw12hw&usqp=CAU",
+        bio: "Loading...",
+      },
     };
   }
 
@@ -22,11 +23,21 @@ class UserClass extends React.Component {
   render() {
     const { name, location, avatar_url, bio } = this.state.userInfo;
     return (
-      <div className="user-card py-10">
-        <img className="w-[50px]" src={avatar_url} alt="User avatar"/>
-        <h3 className="text-xl">Name: {name}</h3>
-        <h4>Location: {location}</h4>
-        <h5>Bio: {bio}</h5>
+      <div className="flex justify-center items-center py-10">
+        <div className="bg-white shadow-lg rounded-2xl p-6 w-80 text-center border hover:shadow-2xl transition-all duration-300">
+          <img
+            className="w-24 h-24 mx-auto rounded-full border-4 border-gray-200 shadow-md"
+            src={avatar_url}
+            alt="User avatar"
+          />
+          <h3 className="text-2xl font-semibold mt-4 text-gray-800">
+            {name}
+          </h3>
+          <h4 className="text-gray-600 mt-2">
+            📍 {location ? location : "Not available"}
+          </h4>
+          <p className="text-sm text-gray-500 mt-3">{bio}</p>
+        </div>
       </div>
     );
   }
